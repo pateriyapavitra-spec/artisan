@@ -94,12 +94,37 @@ elif page=="📷 AI Catalogue":
             except Exception as e: st.error(str(e))
     if st.session_state.catalogue:
         x=st.session_state.catalogue
-        with st.form("catalogue"):
-            name=st.text_input("Product name",x.get("product_name",""))
-            desc=st.text_area("Description",x.get("description",""),height=150)
-            cat=st.text_input("Category",x.get("category",""))
-            tags=st.text_input("Tags",", ".join(x.get("tags",[])))
-            keys=st.text_input("Keywords",", ".join(x.get("keywords",[])))
+        with st.form("catalogue_form"):
+            name = st.text_input(
+    "Product name",
+    x.get("product_name", ""),
+    key="catalogue_product_name"
+)
+
+desc = st.text_area(
+    "Description",
+    x.get("description", ""),
+    height=150,
+    key="catalogue_description"
+)
+
+cat = st.text_input(
+    "Category",
+    x.get("category", ""),
+    key="catalogue_category"
+)
+
+tags = st.text_input(
+    "Tags",
+    ", ".join(x.get("tags", [])),
+    key="catalogue_tags"
+)
+
+keys = st.text_input(
+    "Keywords",
+    ", ".join(x.get("keywords", [])),
+    key="catalogue_keywords"
+)
             st.subheader("Product details")
             material=st.text_input("Material")
             craft=st.selectbox("Craftsmanship",["Low","Medium","High"],index=1)
