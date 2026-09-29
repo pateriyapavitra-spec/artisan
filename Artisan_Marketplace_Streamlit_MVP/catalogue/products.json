@@ -1,0 +1,56 @@
+[
+  {
+    "id": "75fda4567184",
+    "product_name": "Minimalist Ceramic Vase with Blue Bell Flowers",
+    "description": "A smooth, matte-finished, egg-shaped ceramic vase holding a bouquet of purple and blue bell-shaped flowers. The vase is displayed on a reflective surface against a softly blurred background of a window and greenery.",
+    "category": "Home Decor & Vases",
+    "tags": [
+      "ceramic vase",
+      "minimalist",
+      "home decor",
+      "flower arrangement",
+      "matte finish",
+      "blue flowers",
+      "interior styling",
+      "modern"
+    ],
+    "keywords": [
+      "vase",
+      "pottery",
+      "bellflowers",
+      "campanula",
+      "purple flowers",
+      "blue flowers",
+      "tabletop decor",
+      "matte ceramic",
+      "egg-shaped vase",
+      "window light"
+    ],
+    "material": "clay",
+    "craftsmanship_level": "Medium",
+    "production_effort_hours": 1.0,
+    "material_cost": 500.0,
+    "region": "up",
+    "existing_price": null,
+    "inventory": 5,
+    "suggested_price": 1250.0,
+    "pricing": {
+      "suggested_price": 1250.0,
+      "minimum_price": 950.0,
+      "maximum_price": 1600.0,
+      "confidence": 0.75,
+      "factors": [
+        "Material cost of 500.0 INR",
+        "1.0 hour of labor time",
+        "Medium craftsmanship level",
+        "Regional origin: Uttar Pradesh (UP)",
+        "Category: Home Decor & Vases"
+      ],
+      "explanation": "The suggested price is derived by applying a standard artisan markup to cover material costs (500 INR) and labor (1 hour). Given the medium craftsmanship and specific regional origin (UP), a multiplier of approximately 2.5x on total direct costs is applied to ensure fair compensation for the artisan while remaining competitive in the home decor segment. The range accounts for potential variations in perceived value and market positioning."
+    },
+    "marketplaces": [
+      "Amazon Karigar"
+    ],
+    "image_path": "C:\\Users\\Admin\\Downloads\\Artisan_Marketplace_Streamlit_MVP\\uploads\\18b6a040e4cf45a38a6c3721a217d356.jpeg"
+  }
+]
