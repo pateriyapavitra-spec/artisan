@@ -12,14 +12,47 @@ if not GROQ_API_KEY:
 client=Groq(api_key=GROQ_API_KEY)
 
 def generate_catalogue(image_path):
-    p=Path(image_path)
-    mime={".jpg":"image/jpeg",".jpeg":"image/jpeg",".png":"image/png",".webp":"image/webp"}.get(p.suffix.lower(),"application/octet-stream")
-    data=base64.b64encode(p.read_bytes()).decode()
-    prompt="""Analyze this artisan product image. Return only JSON with:
+    p = Path(image_path)
+
+    mime = {
+        ".jpg": "image/jpeg",
+        ".jpeg": "image/jpeg",
+        ".png": "image/png",
+        ".webp": "image/webp"
+    }.get(p.suffix.lower(), "image/jpeg")
+
+    data = base64.b64encode(p.read_bytes()).decode()
+
+    prompt = """Analyze this artisan product image. Return only JSON with:
 product_name, description, category, tags (array), keywords (array).
 Do not invent precise material, region, certification, dimensions or technique unless reasonably visible."""
-    r=client.chat.completions.create(model=MODEL_NAME,messages=[{"role":"user","content":[{"type":"text","text":prompt},{"type":"image_url","image_url":{"url":f"data:{mime};base64,{data}"}}]}],response_format={"type":"json_object"},temperature=.2)
-    result=json.loads(r.choices[0].message.content)
-    for k in ["product_name","description","category","tags","keywords"]:
-        if k not in result: raise ValueError(f"Missing field: {k}")
+
+    r = client.chat.completions.create(
+        model=MODEL_NAME,
+        messages=[
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": prompt
+                    },
+                    {
+                        "type": "image_url",
+                        "image_url": {
+                            "url": f"data:{mime};base64,{data}"
+                        }
+                    }
+                ]
+            }
+        ],
+        max_tokens=800
+    )
+
+    result = json.loads(r.choices[0].message.content)
+
+    for k in ["product_name", "description", "category", "tags", "keywords"]:
+        if k not in result:
+            raise ValueError(f"Missing field: {k}")
+
     return result
